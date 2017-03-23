@@ -35,11 +35,11 @@
         //创建控件
         [self creatControl];
         
-        //设置参数
-        [self setupCamera];
-        
-        //添加定时器
-        [self addTimer];
+//        //设置参数
+//        [self setupCamera];
+//        
+//        //添加定时器
+//        [self addTimer];
     }
     return self;
 }
