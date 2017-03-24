@@ -1,5 +1,6 @@
 platform :ios,'10.2'
 target "advertisement" do
 pod 'Masonry'
+pod 'AFNetworking'
 end
 
