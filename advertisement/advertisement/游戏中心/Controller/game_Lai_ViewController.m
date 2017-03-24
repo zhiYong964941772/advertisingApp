@@ -40,6 +40,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [web loadRequest:request];
     [self.view addSubview:web];
+   
 
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -50,10 +51,21 @@
         [self creatRightBtn];
 
     }else{
-       [webView stringByEvaluatingJavaScriptFromString:@"var script = document.createElement('script');script.type = 'text/javascript';script.text = (function fuckYou() { var i = document.getElementsByClassName('tabBtn'); i.remove();document.getElementsByTagName('head')[0].appendChild('script');  })()"];
-        [self.web stringByEvaluatingJavaScriptFromString:@"fuckYou();"];
-    }
-    
+        NSString *jsFunctStr=@"var script = document.createElement('script');"
+        "script.type = 'text/javascript';"
+        "script.text = \"function myFunction() { "   //定义myFunction方法
+        "var div = document.getElementsByClassName('tabBtn').item(0);"
+        "div.remove();"
+        "}\";"
+        "document.getElementsByTagName('head')[0].appendChild(script);";
+        [self.context evaluateScript:jsFunctStr];
+        
+        //二个参数
+        NSString *jsFunctStr1=@"myFunction();";
+        [self.context evaluateScript:jsFunctStr1];
+        
+           }
+   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
