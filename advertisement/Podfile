@@ -1,6 +1,5 @@
-platform :ios,'10.2'
+platform :ios,'7.0'
 target "advertisement" do
-pod 'Masonry'
 pod 'AFNetworking'
 end
 

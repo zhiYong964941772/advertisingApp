@@ -7,7 +7,7 @@
 //
 
 #import "scan_Lai_ViewController.h"
-
+#import "scan_Lai_View.h"
 @interface scan_Lai_ViewController ()<UIImagePickerControllerDelegate>
 
 @end
@@ -32,7 +32,14 @@
 {
     //背景色
     self.view.backgroundColor = [UIColor blackColor];
-    
+    WS(ws);
+    scan_Lai_View *scanV = [scan_Lai_View shareFactory];
+    scanV.backgroundColor = [UIColor redColor];
+    [self.view addSubview:scanV];
+    [scanV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(ws.view);
+        make.edges.mas_offset(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
     //导航标题
     self.navigationItem.title = @"二维码/条形码";
     
