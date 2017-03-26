@@ -19,7 +19,9 @@
 #define NSNOTIFICATION [NSNotificationCenter defaultCenter]
 #define NSUSERDEFAULTS [NSUserDefaults standardUserDefaults]
 #define HomeDirectory [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
-#define WS(weakSelf)  __weak typeof(self)weakSelf = self;
+#define SS(type) __strong typeof(type) strong##type = type
+#define WS(type) __weak typeof(type) weak##type = type
+
 #define ZHI_NSNotificationCenter [NSNotificationCenter defaultCenter]
 
 #endif /* advertiseMent_h */

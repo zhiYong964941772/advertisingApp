@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface scan_Lai_View : UIView
+@property (nonatomic, copy) void(^showResults)(UIAlertController* showAV);
+
 +(__kindof scan_Lai_View*)shareFactory;
 - (void)stopScanning;
+- (void)startScanning;
+
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message sureHandler:(void (^)())sureHandler cancelHandler:(void (^)())cancelHandler;
+
 @end
