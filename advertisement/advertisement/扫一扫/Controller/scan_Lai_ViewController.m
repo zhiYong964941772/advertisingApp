@@ -32,7 +32,6 @@
         SS(self);
         [strongself presentViewController:AV animated:YES completion:nil];
     };
-    scanV.backgroundColor = [UIColor redColor];
     [self.view addSubview:scanV];
     [scanV mas_makeConstraints:^(MASConstraintMaker *make) {
         SS(self);

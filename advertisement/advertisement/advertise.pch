@@ -15,5 +15,5 @@
 #import "UIView+Extension.h"
 #import "UIBarButtonItem+Extension.h"
 #import "Masonry.h"
-
+#import "advertisementData.h"
 #endif /* advertise_pch */
