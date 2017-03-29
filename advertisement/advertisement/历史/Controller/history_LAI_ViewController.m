@@ -8,7 +8,7 @@
 
 #import "history_LAI_ViewController.h"
 
-@interface history_LAI_ViewController ()
+@interface history_LAI_ViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -16,14 +16,65 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    for (int i = 0; i<3; i++) {
+        UITextField *text = [[UITextField alloc]initWithFrame:CGRectMake(30,100*(i+1),120,30)];
+        text.backgroundColor = [UIColor redColor];
+        text.delegate = self;
+        text.tag = i;
+        [self.view addSubview:text];
+    }
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.frame = CGRectMake(20,64,100,30);
+    [button setTitle:@"111" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(savetest) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    switch (textField.tag) {
+        case 0:
+        {
+            [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
+                context.addObject(SAOMAOName,textField.text);
+            }];
+        }
+            break;
+        case 1:
+        {
+            [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
+                context.addObject(SAOMAOURL,textField.text);
+            }];
+        }
 
+            break;
+        case 2:
+        {
+            [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
+                context.addObject(SAOMAOTime,textField.text);
+
+            }];
+        }
+ 
+            break;
+        default:
+            break;
+    }
+}
+- (void)savetest{
+    {
+        [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
+            context.searchObject();
+        }];
+    }
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
 /*
 #pragma mark - Navigation
 

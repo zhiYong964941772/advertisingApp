@@ -37,6 +37,7 @@
 		218CFEB91E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEB61E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m */; };
 		218CFEBA1E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEB81E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m */; };
 		218CFEC01E8919D600CBA65C /* advertisementData.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEBF1E8919D600CBA65C /* advertisementData.m */; };
+		21CB98A11E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB98A01E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m */; };
 		21D1A5461E851F24006CF9FD /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D1A52E1E851F24006CF9FD /* MASCompositeConstraint.m */; };
 		21D1A5471E851F24006CF9FD /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D1A5311E851F24006CF9FD /* MASConstraint.m */; };
 		21D1A5481E851F24006CF9FD /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D1A5331E851F24006CF9FD /* MASConstraintMaker.m */; };
@@ -126,6 +127,8 @@
 		218CFEB81E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SweepCodeRecord+CoreDataProperties.m"; sourceTree = "<group>"; };
 		218CFEBE1E8919D600CBA65C /* advertisementData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = advertisementData.h; sourceTree = "<group>"; };
 		218CFEBF1E8919D600CBA65C /* advertisementData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = advertisementData.m; sourceTree = "<group>"; };
+		21CB989F1E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FRP.h"; sourceTree = "<group>"; };
+		21CB98A01E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+FRP.m"; sourceTree = "<group>"; };
 		21D1A52D1E851F24006CF9FD /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		21D1A52E1E851F24006CF9FD /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		21D1A52F1E851F24006CF9FD /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -459,6 +462,8 @@
 				212BCF741E8263AD000E6F65 /* UIBarButtonItem+Extension.m */,
 				212BCF761E8263DB000E6F65 /* UIView+Extension.h */,
 				212BCF771E8263DB000E6F65 /* UIView+Extension.m */,
+				21CB989F1E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.h */,
+				21CB98A01E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -747,6 +752,7 @@
 				21D1A5491E851F24006CF9FD /* MASLayoutConstraint.m in Sources */,
 				212BCF551E82633E000E6F65 /* function_LAI_ViewController.m in Sources */,
 				212BCF6C1E82636F000E6F65 /* HWNavigationController.m in Sources */,
+				21CB98A11E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m in Sources */,
 				212BCF521E82630D000E6F65 /* history_LAI_ViewController.m in Sources */,
 				212BCF4F1E8262F2000E6F65 /* game_Lai_ViewController.m in Sources */,
 				212BCEDF1E821CF1000E6F65 /* AppDelegate.m in Sources */,
