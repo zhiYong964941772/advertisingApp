@@ -11,9 +11,9 @@
 @interface NSManagedObjectContext (FRP)
 
 +(NSError *)makeManagedObjectContext:(void(^)(NSManagedObjectContext *context))context;
-- (NSManagedObjectContext *(^)(  NSString *key,NSString *value))addObject;
-- (NSManagedObjectContext *(^)(NSString *key,NSString *value))deleteObject;
-- (NSManagedObjectContext *(^)(NSString *key,NSString *value))changeObject;
+- (NSManagedObjectContext *(^)(  NSString *name,NSString *url,NSString *time))addObject;
+- (NSManagedObjectContext *(^)(NSString *deleteModelName))deleteObject;
+- (NSManagedObjectContext *(^)(NSString *changeModelName,NSString *keyChange,NSString *valueChange))changeObject;
 - (NSManagedObjectContext *(^)())searchObject;
 
 @end

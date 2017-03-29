@@ -9,6 +9,9 @@
 #import "history_LAI_ViewController.h"
 
 @interface history_LAI_ViewController ()<UITextFieldDelegate>
+@property(copy,nonatomic)NSString *test1;
+@property(copy,nonatomic)NSString *test2;
+@property(copy,nonatomic)NSString *test3;
 
 @end
 
@@ -29,30 +32,36 @@
     [button setTitle:@"111" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(savetest) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeSystem];
+    button2.frame = CGRectMake(CGRectGetMaxX(button.frame)+10,64,100,30);
+    [button2 setTitle:@"222" forState:UIControlStateNormal];
+    [button2 addTarget:self action:@selector(savetest2) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button2];
+    UIButton *button3 = [UIButton buttonWithType:UIButtonTypeSystem];
+    button3.frame = CGRectMake(CGRectGetMaxX(button2.frame)+10,64,100,30);
+    [button3 setTitle:@"333" forState:UIControlStateNormal];
+    [button3 addTarget:self action:@selector(savetest3) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button3];
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     switch (textField.tag) {
         case 0:
         {
-            [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
-                context.addObject(SAOMAOName,textField.text);
-            }];
+            _test1 = textField.text;
         }
             break;
         case 1:
         {
-            [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
-                context.addObject(SAOMAOURL,textField.text);
-            }];
+            _test2= textField.text;
+
         }
 
             break;
         case 2:
         {
-            [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
-                context.addObject(SAOMAOTime,textField.text);
-
-            }];
+            _test3= textField.text;
+    
         }
  
             break;
@@ -67,6 +76,22 @@
         }];
     }
 
+}
+- (void)savetest2{
+    {
+        [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
+            context.addObject(_test1,_test2,_test3);
+        }];
+    }
+    
+}
+- (void)savetest3{
+    {
+        [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
+            context.deleteObject(_test1);
+        }];
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -29,28 +29,23 @@
         return error;
     }
 }
-- (NSManagedObjectContext *(^)(NSString *, NSString *))addObject{
-    return ^(NSString *key,NSString *value){
+- (NSManagedObjectContext *(^)(NSString * ,NSString *,NSString *))addObject{
+    return ^(NSString *name,NSString *url,NSString *time){
         SweepCodeRecord *mObjc = [NSEntityDescription insertNewObjectForEntityForName:@"SweepCodeRecord" inManagedObjectContext:self];
-        if ([key isEqualToString:SAOMAOName]) {
-            mObjc.sweepCodeName = value;
-        }
-        if ([key isEqualToString:SAOMAOTime]) {
-            mObjc.sweepCodeTime = value;
-        }
-        if ([key isEqualToString:SAOMAOURL]) {
-            mObjc.sweepCodeURL = value;
-        }
+            mObjc.sweepCodeName = name;
+            mObjc.sweepCodeTime = time;
+            mObjc.sweepCodeURL = url;
+        
         NSError *error = nil;
         [self save:&error];
         return self;
     };
 }
-- (NSManagedObjectContext *(^)(NSString *, NSString *))deleteObject{
-    return ^(NSString *key,NSString *value){
+- (NSManagedObjectContext *(^)(NSString *))deleteObject{
+    return ^(NSString *deleteModelName){
         NSFetchRequest *request = [SweepCodeRecord fetchRequest];//创建请求;
         
-        NSPredicate *pdct = [NSPredicate predicateWithFormat:@"%@ = %@",key,value];//创建查询谓语
+        NSPredicate *pdct = [NSPredicate predicateWithFormat:@"sweepCodeName=%@",deleteModelName];//创建查询谓语
         request.predicate = pdct;
         NSError *error = nil;
         NSArray *objs = [self executeFetchRequest:request error:&error];
@@ -66,24 +61,24 @@
         return self;
     };
 }
-- (NSManagedObjectContext *(^)(NSString *, NSString *))changeObject{
-    return  ^(NSString *key ,NSString *value){
+- (NSManagedObjectContext *(^)(NSString * ,NSString *,NSString *))changeObject{
+    return  ^(NSString *changeModelName,NSString *keyChange,NSString *valueChange){
         NSFetchRequest *request = [SweepCodeRecord fetchRequest];
         [request setFetchLimit:1];
-        NSPredicate *pdct = [NSPredicate predicateWithFormat:@"%@ = %@",key,value];
+        NSPredicate *pdct = [NSPredicate predicateWithFormat:@"%@=%@",SAOMAOName,changeModelName];
         request.predicate = pdct;
         NSError *error = nil;
         NSArray *objs = [self executeFetchRequest:request error:&error];
         if (!error) {
             for (SweepCodeRecord *obj in objs) {
-                if ([key isEqualToString:SAOMAOName]) {
-                    obj.sweepCodeName = value;
+                if ([keyChange isEqualToString:SAOMAOName]) {
+                    obj.sweepCodeName = valueChange;
                 }
-                if ([key isEqualToString:SAOMAOTime]) {
-                    obj.sweepCodeTime = value;
+                if ([keyChange isEqualToString:SAOMAOURL]) {
+                    obj.sweepCodeURL = valueChange;
                 }
-                if ([key isEqualToString:SAOMAOURL]) {
-                    obj.sweepCodeURL = value;
+                if ([keyChange isEqualToString:SAOMAOTime]) {
+                    obj.sweepCodeTime = valueChange;
                 }
                 [self save:&error];
             }
