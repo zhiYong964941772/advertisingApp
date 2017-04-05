@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *sweepCodeURL;
 @property (nullable, nonatomic, copy) NSString *sweepCodeName;
 @property (nullable, nonatomic, copy) NSString *sweepCodeTime;
+@property (nullable, nonatomic, copy) NSString *sweepCodeImageName;
 
 @end
 

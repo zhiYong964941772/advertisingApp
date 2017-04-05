@@ -7,6 +7,7 @@
 //
 
 #import "scan_Lai_ViewController.h"
+#import "BaseWebViewController.h"
 #import "scan_Lai_View.h"
 @interface scan_Lai_ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,weak)scan_Lai_View *scanV;
@@ -25,12 +26,16 @@
 {
     //背景色
     self.view.backgroundColor = [UIColor blackColor];
-    WS(self);
+    @weakify(self);
     scan_Lai_View *scanV = [scan_Lai_View shareFactory];
     self.scanV = scanV;
     scanV.showResults = ^(UIAlertController *AV){
-        SS(self);
-        [strongself presentViewController:AV animated:YES completion:nil];
+        @strongify(self);
+        [self presentViewController:AV animated:YES completion:nil];
+    };
+    scanV.pushWebVC = ^(NSString *url){
+        @strongify(self);
+        [self pushWebVC:url];
     };
     [self.view addSubview:scanV];
     [scanV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -39,10 +44,15 @@
         make.edges.mas_offset(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     //导航标题
-    self.navigationItem.title = @"二维码/条形码";
+    self.title = @"二维码/条形码";
     
     //导航右侧相册按钮
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"相册" style:UIBarButtonItemStylePlain target:self action:@selector(photoBtnOnClick)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(selectTarbarChildVC)];
+}
+#pragma mark -- 跳转到历史
+- (void)selectTarbarChildVC{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 //进入相册
 - (void)photoBtnOnClick
@@ -70,29 +80,32 @@
         
         //识别结果
         if (features.count > 0) {
-            WS(self);
-            [self.scanV showAlertWithTitle:@"扫描结果" message:[[features firstObject] messageString] sureHandler:^{
-                SS(self);
-
-                [strongself.scanV stopScanning];
-            } cancelHandler:^{
-                SS(self);
-
-                [strongself.scanV startScanning];
-
-            }];
-            
+            [self.scanV stopScanning];
+            [self pushWebVC:[[features firstObject] messageString]];
         }else{
             [self.scanV showAlertWithTitle:@"没有识别到二维码或条形码" message:nil sureHandler:nil cancelHandler:nil];
         }
     }];
 }
-
+#pragma mark -- 加载webView
+- (void)pushWebVC:(NSString *)url{
+   BaseWebViewController *bWeb = [[BaseWebViewController pushWebVC:url]tipsUrl:^(NSString *str) {
+       NSLog(@"%@",str);
+   }];
+    [self.navigationController pushViewController:bWeb animated:YES];
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
     [self.scanV stopScanning];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.scanV) {
+        [self.scanV startScanning];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -41,12 +41,14 @@
         return self;
     };
 }
-- (NSManagedObjectContext *(^)(NSString *))deleteObject{
+- (NSManagedObjectContext *(^)(NSString * ))deleteObject{
     return ^(NSString *deleteModelName){
         NSFetchRequest *request = [SweepCodeRecord fetchRequest];//创建请求;
         
-        NSPredicate *pdct = [NSPredicate predicateWithFormat:@"sweepCodeName=%@",deleteModelName];//创建查询谓语
-        request.predicate = pdct;
+        if (deleteModelName.length>0||[deleteModelName isEqualToString:@"(null)"]) {
+            NSPredicate *pdct = [NSPredicate predicateWithFormat:@"sweepCodeName=%@",deleteModelName];//创建查询谓语
+            request.predicate = pdct;
+        }
         NSError *error = nil;
         NSArray *objs = [self executeFetchRequest:request error:&error];
         if (error) {
@@ -65,7 +67,7 @@
     return  ^(NSString *changeModelName,NSString *keyChange,NSString *valueChange){
         NSFetchRequest *request = [SweepCodeRecord fetchRequest];
         [request setFetchLimit:1];
-        NSPredicate *pdct = [NSPredicate predicateWithFormat:@"%@=%@",SAOMAOName,changeModelName];
+        NSPredicate *pdct = [NSPredicate predicateWithFormat:@"sweepCodeName=%@",changeModelName];
         request.predicate = pdct;
         NSError *error = nil;
         NSArray *objs = [self executeFetchRequest:request error:&error];

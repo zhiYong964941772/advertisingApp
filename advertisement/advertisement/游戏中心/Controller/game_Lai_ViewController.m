@@ -51,6 +51,9 @@
         [self creatRightBtn];
 
     }else{
+        self.title = @"小游戏";
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.rightBarButtonItem = nil;
         NSString *jsFunctStr=@"var script = document.createElement('script');"
         "script.type = 'text/javascript';"
         "script.text = \"function myFunction() { "   //定义myFunction方法

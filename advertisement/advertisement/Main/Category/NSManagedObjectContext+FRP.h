@@ -11,9 +11,9 @@
 @interface NSManagedObjectContext (FRP)
 
 +(NSError *)makeManagedObjectContext:(void(^)(NSManagedObjectContext *context))context;
-- (NSManagedObjectContext *(^)(  NSString *name,NSString *url,NSString *time))addObject;
-- (NSManagedObjectContext *(^)(NSString *deleteModelName))deleteObject;
-- (NSManagedObjectContext *(^)(NSString *changeModelName,NSString *keyChange,NSString *valueChange))changeObject;
+- (NSManagedObjectContext *(^)(  NSString * name,NSString *url,NSString *time))addObject;
+- (NSManagedObjectContext *(^)( NSString * deleteModelName))deleteObject;///<如果传空，那么就会删除所有
+- (NSManagedObjectContext *(^)(NSString * changeModelName,NSString *keyChange,NSString *valueChange))changeObject;
 - (NSManagedObjectContext *(^)())searchObject;
 
 @end

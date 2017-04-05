@@ -10,6 +10,7 @@
 
 @interface scan_Lai_View : UIView
 @property (nonatomic, copy) void(^showResults)(UIAlertController* showAV);
+@property (nonatomic, copy) void(^pushWebVC)(NSString* urlStr);
 
 +(__kindof scan_Lai_View*)shareFactory;
 - (void)stopScanning;

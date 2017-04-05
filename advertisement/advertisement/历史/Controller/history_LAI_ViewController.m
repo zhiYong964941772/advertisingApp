@@ -19,30 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    for (int i = 0; i<3; i++) {
-        UITextField *text = [[UITextField alloc]initWithFrame:CGRectMake(30,100*(i+1),120,30)];
-        text.backgroundColor = [UIColor redColor];
-        text.delegate = self;
-        text.tag = i;
-        [self.view addSubview:text];
-    }
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    button.frame = CGRectMake(20,64,100,30);
-    [button setTitle:@"111" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(savetest) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-
-    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeSystem];
-    button2.frame = CGRectMake(CGRectGetMaxX(button.frame)+10,64,100,30);
-    [button2 setTitle:@"222" forState:UIControlStateNormal];
-    [button2 addTarget:self action:@selector(savetest2) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button2];
-    UIButton *button3 = [UIButton buttonWithType:UIButtonTypeSystem];
-    button3.frame = CGRectMake(CGRectGetMaxX(button2.frame)+10,64,100,30);
-    [button3 setTitle:@"333" forState:UIControlStateNormal];
-    [button3 addTarget:self action:@selector(savetest3) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button3];
+    [self creatRightButton];
+}
+- (void)creatRightButton{
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@""] style:UIBarButtonItemStyleDone target:self action:@selector(deleteHistory)];
+    self.navigationItem.rightBarButtonItem = right;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     switch (textField.tag) {
@@ -85,10 +66,10 @@
     }
     
 }
-- (void)savetest3{
+- (void)deleteHistory{
     {
         [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
-            context.deleteObject(_test1);
+            context.deleteObject(@"");
         }];
     }
     

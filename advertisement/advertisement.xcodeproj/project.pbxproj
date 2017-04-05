@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210912051E94A11E00B391E6 /* history_LAI_UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210912041E94A11E00B391E6 /* history_LAI_UITableView.m */; };
+		210912081E94A30300B391E6 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 210912071E94A30300B391E6 /* BaseWebViewController.m */; };
 		212BCEDC1E821CF1000E6F65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 212BCEDB1E821CF1000E6F65 /* main.m */; };
 		212BCEDF1E821CF1000E6F65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 212BCEDE1E821CF1000E6F65 /* AppDelegate.m */; };
 		212BCEE21E821CF1000E6F65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212BCEE11E821CF1000E6F65 /* ViewController.m */; };
@@ -70,6 +72,10 @@
 
 /* Begin PBXFileReference section */
 		0AE9DCEF76FB9AF213776C27 /* libPods-advertisement.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-advertisement.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		210912031E94A11E00B391E6 /* history_LAI_UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = history_LAI_UITableView.h; sourceTree = "<group>"; };
+		210912041E94A11E00B391E6 /* history_LAI_UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = history_LAI_UITableView.m; sourceTree = "<group>"; };
+		210912061E94A30300B391E6 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
+		210912071E94A30300B391E6 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		212BCED71E821CF1000E6F65 /* advertisement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = advertisement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		212BCEDB1E821CF1000E6F65 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		212BCEDD1E821CF1000E6F65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -404,6 +410,8 @@
 		212BCF451E82628C000E6F65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				210912031E94A11E00B391E6 /* history_LAI_UITableView.h */,
+				210912041E94A11E00B391E6 /* history_LAI_UITableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -475,6 +483,8 @@
 				212BCF5D1E82636F000E6F65 /* HWNavigationController.m */,
 				212BCF5E1E82636F000E6F65 /* HWTabBarViewController.h */,
 				212BCF5F1E82636F000E6F65 /* HWTabBarViewController.m */,
+				210912061E94A30300B391E6 /* BaseWebViewController.h */,
+				210912071E94A30300B391E6 /* BaseWebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -753,6 +763,7 @@
 				212BCF551E82633E000E6F65 /* function_LAI_ViewController.m in Sources */,
 				212BCF6C1E82636F000E6F65 /* HWNavigationController.m in Sources */,
 				21CB98A11E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m in Sources */,
+				210912051E94A11E00B391E6 /* history_LAI_UITableView.m in Sources */,
 				212BCF521E82630D000E6F65 /* history_LAI_ViewController.m in Sources */,
 				212BCF4F1E8262F2000E6F65 /* game_Lai_ViewController.m in Sources */,
 				212BCEDF1E821CF1000E6F65 /* AppDelegate.m in Sources */,
@@ -761,6 +772,7 @@
 				212BCF701E82636F000E6F65 /* HWTabBar.m in Sources */,
 				21D1A54C1E851F24006CF9FD /* NSArray+MASAdditions.m in Sources */,
 				21D1A54F1E851F24006CF9FD /* ViewController+MASAdditions.m in Sources */,
+				210912081E94A30300B391E6 /* BaseWebViewController.m in Sources */,
 				212BCEDC1E821CF1000E6F65 /* main.m in Sources */,
 				212BCF781E8263DB000E6F65 /* UIView+Extension.m in Sources */,
 				212BCF6E1E82636F000E6F65 /* HWDropdownMenu.m in Sources */,

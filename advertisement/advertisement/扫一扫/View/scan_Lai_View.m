@@ -159,17 +159,9 @@
 {
     //扫描完成
     if ([metadataObjects count] > 0) {
-        WS(self);
-        
+        [self stopScanning];
+        self.pushWebVC([[metadataObjects firstObject] stringValue]);
         //显示结果
-        [self showAlertWithTitle:@"扫描结果" message:[[metadataObjects firstObject] stringValue] sureHandler:^{
-            SS(self);
-            [strongself stopScanning];
-        } cancelHandler:^{
-            SS(self);
-            [strongself startScanning];
-            
-        }];
     }
 }
 
