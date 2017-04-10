@@ -7,10 +7,13 @@
 //
 
 #import "BaseWebViewController.h"
+#import <JavaScriptCore/JavaScriptCore.h>
 
 @interface BaseWebViewController ()<UIWebViewDelegate>
 @property (nonatomic,weak)UIWebView *webView;
 @property (nonatomic,copy)NSString *urlStr;
+@property (nonatomic ,strong)JSContext *context;
+
 @end
 
 @implementation BaseWebViewController
@@ -29,6 +32,13 @@
     }
     return self;
 }
+- (JSContext *)context{
+    if (!_context) {
+        _context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    }
+    return _context;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self creatFooterView];
@@ -98,15 +108,20 @@
 #pragma mark -- 后退
 - (void)retreatAction{
     
+    NSString *jsFunctStr1=@"history.back();";
+    [self.context evaluateScript:jsFunctStr1];
+
 }
 #pragma mark -- 前进
 - (void)advanceAction{
-    
+    NSString *jsFunctStr1=@"history.forward();";
+    [self.context evaluateScript:jsFunctStr1];
 }
 
 #pragma mark -- 刷新
 - (void)refreshAction{
-    
+    NSString *jsFunctStr1=@"location.reload();";
+    [self.context evaluateScript:jsFunctStr1];
 }
 
 - (void)didReceiveMemoryWarning {
