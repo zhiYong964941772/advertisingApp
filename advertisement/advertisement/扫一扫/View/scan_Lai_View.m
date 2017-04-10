@@ -180,7 +180,10 @@
     }else{
         [self addTimer];
     }
-    [_session startRunning];
+    if (_session) {
+        [_session startRunning];
+
+    }
 }
 #pragma mark -- 取消循环
 - (void)removeTimer

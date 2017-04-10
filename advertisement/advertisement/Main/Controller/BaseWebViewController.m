@@ -41,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self creatFooterView];
 }
 - (void)setUrlStr:(NSString *)urlStr{
@@ -52,6 +53,7 @@
     UIWebView *web = [[UIWebView alloc]initWithFrame:CGRectMake(0,64,SCREEN_WIDTH,viewH-64)];
     web.scalesPageToFit = YES;
     web.delegate = self;
+    web.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
     NSURL *url = [NSURL URLWithString:self.urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [web loadRequest:request];
@@ -62,11 +64,11 @@
 }
 #pragma mark -- webDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView{
-    NSLog(@"ni");
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
      self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    [self endRefreshAction];
 
 }
 #pragma mark -- 底部视图的创建
@@ -123,7 +125,10 @@
     NSString *jsFunctStr1=@"location.reload();";
     [self.context evaluateScript:jsFunctStr1];
 }
-
+#pragma mark -- 结束刷新
+- (void)endRefreshAction{
+    [self.webView.scrollView.mj_header endRefreshing];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
