@@ -1,6 +1,7 @@
 platform :ios,'7.0'
 target "advertisement" do
 pod 'ReactiveCocoa'
+pod 'MJRefresh'
 pod 'AFNetworking'
 end
 
