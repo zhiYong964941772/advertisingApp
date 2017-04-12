@@ -7,11 +7,9 @@
 //
 
 #import "history_LAI_ViewController.h"
+#import "history_LAI_UITableView.h"
+@interface history_LAI_ViewController ()
 
-@interface history_LAI_ViewController ()<UITextFieldDelegate>
-@property(copy,nonatomic)NSString *test1;
-@property(copy,nonatomic)NSString *test2;
-@property(copy,nonatomic)NSString *test3;
 
 @end
 
@@ -19,53 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self creatTableView];
     [self creatRightButton];
+}
+- (void)creatTableView{
+    history_LAI_UITableView *tableView = [[history_LAI_UITableView alloc]initWithFrame:CGRectMake(0,64,SCREEN_WIDTH,SCREEN_HEIGHT - 104)];
+    [tableView showRowNum];
+    [self.view addSubview: tableView];
 }
 - (void)creatRightButton{
     UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@""] style:UIBarButtonItemStyleDone target:self action:@selector(deleteHistory)];
     self.navigationItem.rightBarButtonItem = right;
 }
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    switch (textField.tag) {
-        case 0:
-        {
-            _test1 = textField.text;
-        }
-            break;
-        case 1:
-        {
-            _test2= textField.text;
 
-        }
-
-            break;
-        case 2:
-        {
-            _test3= textField.text;
-    
-        }
- 
-            break;
-        default:
-            break;
-    }
-}
-- (void)savetest{
-    {
-        [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
-            context.searchObject();
-        }];
-    }
-
-}
-- (void)savetest2{
-    {
-        [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
-            context.addObject(_test1,_test2,_test3);
-        }];
-    }
-    
-}
 - (void)deleteHistory{
     {
         [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {

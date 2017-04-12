@@ -17,6 +17,6 @@
 @dynamic sweepCodeURL;
 @dynamic sweepCodeName;
 @dynamic sweepCodeTime;
-@dynamic sweepCodeImageName;
+@dynamic sweepCodeImage;
 
 @end

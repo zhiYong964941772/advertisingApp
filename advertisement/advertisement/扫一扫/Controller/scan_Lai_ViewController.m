@@ -89,10 +89,14 @@
 }
 #pragma mark -- 加载webView
 - (void)pushWebVC:(NSString *)url{
-   BaseWebViewController *bWeb = [[BaseWebViewController pushWebVC:url]tipsUrl:^(NSString *str) {
-       NSLog(@"%@",str);
-   }];
-    [self.navigationController pushViewController:bWeb animated:YES];
+    if ([url rangeOfString:@"http"].location != NSNotFound||[url rangeOfString:@"https"].location != NSNotFound) {
+        BaseWebViewController *bWeb = [[BaseWebViewController pushWebVC:url WithIsScan:YES]tipsUrl:^(NSString *str) {
+            NSLog(@"%@",str);
+        }];
+        [self.navigationController pushViewController:bWeb animated:YES];
+    }else{
+        [self.scanV showAlertWithTitle:url message:nil sureHandler:nil cancelHandler:nil];
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated
 {

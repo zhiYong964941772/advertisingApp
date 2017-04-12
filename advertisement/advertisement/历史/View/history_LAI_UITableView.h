@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface history_LAI_UITableView : UITableView
-
+- (void)showRowNum;
 @end

@@ -10,6 +10,6 @@
 
 @interface BaseWebViewController : UIViewController
 
-+ (BaseWebViewController *)pushWebVC:(NSString *)urlStr;
++ (BaseWebViewController *)pushWebVC:(NSString *)urlStr WithIsScan:(BOOL)isScan;
 - (BaseWebViewController *)tipsUrl:(void(^)(NSString *str))urlStr;
 @end

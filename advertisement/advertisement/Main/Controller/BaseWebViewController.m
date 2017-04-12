@@ -7,20 +7,23 @@
 //
 
 #import "BaseWebViewController.h"
+
 #import <JavaScriptCore/JavaScriptCore.h>
 
 @interface BaseWebViewController ()<UIWebViewDelegate>
 @property (nonatomic,weak)UIWebView *webView;
 @property (nonatomic,copy)NSString *urlStr;
 @property (nonatomic ,strong)JSContext *context;
+@property (nonatomic, assign)BOOL isScan;
 
 @end
 
 @implementation BaseWebViewController
 #define footerViewH 44
 #define viewH SCREEN_HEIGHT - footerViewH
-+ (BaseWebViewController *)pushWebVC:(NSString *)urlStr{
++ (BaseWebViewController *)pushWebVC:(NSString *)urlStr WithIsScan:(BOOL)isScan{
     BaseWebViewController *bWeb = [[BaseWebViewController alloc]init];
+    bWeb.isScan = isScan;
     bWeb.urlStr = urlStr;
     return bWeb;
 }
@@ -67,7 +70,20 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-     self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.title = title;
+    if ([self.urlStr isEqualToString:webView.request.URL.absoluteString]&&(self.isScan==YES)) {
+        //保存浏览信息到数据库
+        [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
+           BOOL isQuery = [context queryTableExists:title];
+            if (isQuery) {
+                NSLog(@"%@已经存在,只更新表",self.title);
+                context.deleteObject(title).addObject(title,self.urlStr,[self getImageData]);
+            }else{
+                context.addObject(title,self.urlStr,[self getImageData]);
+            }
+        }];
+    }
     [self endRefreshAction];
 
 }
@@ -128,6 +144,14 @@
 #pragma mark -- 结束刷新
 - (void)endRefreshAction{
     [self.webView.scrollView.mj_header endRefreshing];
+}
+#pragma mark -- 获取截图
+- (NSData *)getImageData{
+    UIGraphicsBeginImageContext(self.webView.frame.size);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return UIImagePNGRepresentation(image);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

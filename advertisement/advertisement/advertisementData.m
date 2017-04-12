@@ -12,5 +12,6 @@
 NSString * const SAOMAOName = @"sweepCodeName";
 NSString * const SAOMAOURL = @"sweepCodeURL";
 NSString * const SAOMAOTime = @"sweepCodeTime";
+NSString * const SAOMAOImage = @"sweepCodeImage";
 
 @end

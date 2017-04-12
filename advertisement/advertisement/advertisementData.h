@@ -12,5 +12,6 @@
 extern NSString * const SAOMAOName;
 extern NSString * const SAOMAOURL;
 extern NSString * const SAOMAOTime;
+extern NSString * const SAOMAOImage;
 
 @end

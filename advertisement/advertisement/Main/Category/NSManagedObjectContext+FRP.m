@@ -29,18 +29,20 @@
         return error;
     }
 }
-- (NSManagedObjectContext *(^)(NSString * ,NSString *,NSString *))addObject{
-    return ^(NSString *name,NSString *url,NSString *time){
+#pragma mark -- 增加表
+- (NSManagedObjectContext *(^)(NSString * ,NSString *,NSData *))addObject{
+    return ^(NSString *name,NSString *url,NSData *image){
         SweepCodeRecord *mObjc = [NSEntityDescription insertNewObjectForEntityForName:@"SweepCodeRecord" inManagedObjectContext:self];
             mObjc.sweepCodeName = name;
-            mObjc.sweepCodeTime = time;
+            mObjc.sweepCodeTime = [self getDate];
             mObjc.sweepCodeURL = url;
-        
+            mObjc.sweepCodeImage = image;
         NSError *error = nil;
         [self save:&error];
         return self;
     };
 }
+#pragma mark -- 删除某一个表
 - (NSManagedObjectContext *(^)(NSString * ))deleteObject{
     return ^(NSString *deleteModelName){
         NSFetchRequest *request = [SweepCodeRecord fetchRequest];//创建请求;
@@ -63,8 +65,9 @@
         return self;
     };
 }
-- (NSManagedObjectContext *(^)(NSString * ,NSString *,NSString *))changeObject{
-    return  ^(NSString *changeModelName,NSString *keyChange,NSString *valueChange){
+#pragma mark -- 修改表
+- (NSManagedObjectContext *(^)(NSString * ,NSString *,id,NSData *))changeObject{
+    return  ^(NSString *changeModelName,NSString *keyChange,id valueChange,NSData *imageChange){
         NSFetchRequest *request = [SweepCodeRecord fetchRequest];
         [request setFetchLimit:1];
         NSPredicate *pdct = [NSPredicate predicateWithFormat:@"sweepCodeName=%@",changeModelName];
@@ -82,25 +85,48 @@
                 if ([keyChange isEqualToString:SAOMAOTime]) {
                     obj.sweepCodeTime = valueChange;
                 }
+                if ([keyChange isEqualToString:SAOMAOImage]) {
+                    obj.sweepCodeImage = valueChange;
+                }
+
                 [self save:&error];
             }
         }
         return self;
     };
 }
-- (NSManagedObjectContext *(^)())searchObject{
+#pragma mark -- 查询表
+- (NSArray *(^)())searchObject{
     return ^(){
         NSFetchRequest *request = [SweepCodeRecord fetchRequest];//创建请求;默认全查
         
         NSError *error = nil;
         NSArray *objs = [self executeFetchRequest:request error:&error];
         if (!error) {
-            for (SweepCodeRecord *obj in objs) {
-                NSLog(@"name=%@----url=%@----time=%@",obj.sweepCodeName,obj.sweepCodeURL,obj.sweepCodeTime);
-            }
-        }
+            return objs;
 
-        return self;
+        }
+        return [NSArray array];
+
     };
+}
+#pragma mark -- 判断表是否存在
+- (BOOL)queryTableExists:(NSString *)searchName{
+    NSFetchRequest *request = [SweepCodeRecord fetchRequest];//创建请求;默认全查
+    NSPredicate *pdct = [NSPredicate predicateWithFormat:@"sweepCodeName=%@",searchName];
+    request.predicate = pdct;
+    NSError *error = nil;
+    NSArray *objs = [self executeFetchRequest:request error:&error];
+    if (objs.count) {
+        return YES;
+    }
+    return NO;
+
+}
+#pragma mark -- 获取当前时间
+- (NSString *)getDate{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [dateFormatter stringFromDate:[NSDate date]];
 }
 @end
