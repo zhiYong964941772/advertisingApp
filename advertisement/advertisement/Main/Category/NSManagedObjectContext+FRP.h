@@ -9,7 +9,6 @@
 #import <CoreData/CoreData.h>
 
 @interface NSManagedObjectContext (FRP)
-@property (nonatomic, copy)void (^gainTableExists)(NSArray *tableList);
 +(NSError *)makeManagedObjectContext:(void(^)(NSManagedObjectContext *context))context;//创建数据库
 - (NSManagedObjectContext *(^)( NSString * name,NSString *url,NSData *image))addObject;//添加表
 - (NSManagedObjectContext *(^)( NSString * deleteModelName))deleteObject;///<如果传空，那么就会删除所有

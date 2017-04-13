@@ -17,11 +17,8 @@
 @implementation history_LAI_TableViewCell
 static NSString *identifier = @"history_LAI_TableViewCell";
 + (instancetype)getWithTableView:(UITableView *)tableView{
-    history_LAI_TableViewCell *cell;
-    if (!cell) {
-        [tableView registerNib:[UINib nibWithNibName:identifier bundle:nil] forCellReuseIdentifier:identifier];
-    }
-   
+    
+    [tableView registerNib:[UINib nibWithNibName:identifier bundle:nil] forCellReuseIdentifier:identifier];
     return [tableView dequeueReusableCellWithIdentifier:identifier];
 }
 - (void)setHistoryModel:(history_LAI_model *)historyModel{

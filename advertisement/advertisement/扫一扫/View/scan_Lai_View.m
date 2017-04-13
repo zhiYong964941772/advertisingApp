@@ -180,6 +180,7 @@
     }else{
         [self addTimer];
     }
+    //偶尔会崩溃，大概是第一次权限原因，要加上是否开启了相机权限
     if (_session) {
         [_session startRunning];
 
