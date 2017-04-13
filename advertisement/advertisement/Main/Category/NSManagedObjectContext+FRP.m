@@ -47,7 +47,7 @@
     return ^(NSString *deleteModelName){
         NSFetchRequest *request = [SweepCodeRecord fetchRequest];//创建请求;
         
-        if (deleteModelName.length>0||[deleteModelName isEqualToString:@"(null)"]) {
+        if (deleteModelName.length>0||![deleteModelName isEqualToString:@"(null)"]) {
             NSPredicate *pdct = [NSPredicate predicateWithFormat:@"sweepCodeName=%@",deleteModelName];//创建查询谓语
             request.predicate = pdct;
         }
@@ -99,7 +99,6 @@
 - (NSArray *(^)())searchObject{
     return ^(){
         NSFetchRequest *request = [SweepCodeRecord fetchRequest];//创建请求;默认全查
-        
         NSError *error = nil;
         NSArray *objs = [self executeFetchRequest:request error:&error];
         if (!error) {

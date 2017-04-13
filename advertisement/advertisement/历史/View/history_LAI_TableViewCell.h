@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class SweepCodeRecord;
+@class history_LAI_model;
 @interface history_LAI_TableViewCell : UITableViewCell
-@property (nonatomic, strong)SweepCodeRecord *historyModel;
+@property (nonatomic, strong)history_LAI_model *historyModel;
 + (instancetype)getWithTableView:(UITableView *)tableView;
 @end

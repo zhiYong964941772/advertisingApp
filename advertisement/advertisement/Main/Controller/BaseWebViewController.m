@@ -14,7 +14,7 @@
 @property (nonatomic,weak)UIWebView *webView;
 @property (nonatomic,copy)NSString *urlStr;
 @property (nonatomic ,strong)JSContext *context;
-@property (nonatomic, assign)BOOL isScan;
+@property (nonatomic, assign)BOOL isScan;//判断是否扫描获得的webUrl，如果不是，就不存coreData
 
 @end
 
@@ -147,7 +147,7 @@
 }
 #pragma mark -- 获取截图
 - (NSData *)getImageData{
-    UIGraphicsBeginImageContext(self.webView.frame.size);
+    UIGraphicsBeginImageContext(CGSizeMake(SCREEN_WIDTH,SCREEN_HEIGHT));
     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

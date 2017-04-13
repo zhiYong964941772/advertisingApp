@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface history_LAI_UITableView : UITableView
+@property (nonatomic, copy)void(^historyWebShow)(NSString *historyUrl);
 - (void)showRowNum;
 @end

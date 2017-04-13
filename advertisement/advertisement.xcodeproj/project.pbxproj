@@ -52,6 +52,8 @@
 		21D1A54D1E851F24006CF9FD /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D1A5401E851F24006CF9FD /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		21D1A54E1E851F24006CF9FD /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D1A5421E851F24006CF9FD /* View+MASAdditions.m */; };
 		21D1A54F1E851F24006CF9FD /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D1A5451E851F24006CF9FD /* ViewController+MASAdditions.m */; };
+		21E1B4221E9F5B07009A9A57 /* UITableView+LZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E1B4211E9F5B07009A9A57 /* UITableView+LZY.m */; };
+		21E1B4251E9F739C009A9A57 /* history_LAI_model.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E1B4241E9F739C009A9A57 /* history_LAI_model.m */; };
 		E2FA57CE512CA1E5F53929D8 /* libPods-advertisement.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE9DCEF76FB9AF213776C27 /* libPods-advertisement.a */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +167,10 @@
 		21D1A5431E851F24006CF9FD /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		21D1A5441E851F24006CF9FD /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		21D1A5451E851F24006CF9FD /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		21E1B4201E9F5B07009A9A57 /* UITableView+LZY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+LZY.h"; sourceTree = "<group>"; };
+		21E1B4211E9F5B07009A9A57 /* UITableView+LZY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+LZY.m"; sourceTree = "<group>"; };
+		21E1B4231E9F739C009A9A57 /* history_LAI_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = history_LAI_model.h; sourceTree = "<group>"; };
+		21E1B4241E9F739C009A9A57 /* history_LAI_model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = history_LAI_model.m; sourceTree = "<group>"; };
 		511A6F44BDFB1B6A906B5BEF /* Pods-advertisement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-advertisement.debug.xcconfig"; path = "Pods/Target Support Files/Pods-advertisement/Pods-advertisement.debug.xcconfig"; sourceTree = "<group>"; };
 		A8CEBE8B48A4A12F646ECF09 /* Pods-advertisement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-advertisement.release.xcconfig"; path = "Pods/Target Support Files/Pods-advertisement/Pods-advertisement.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -408,6 +414,8 @@
 		212BCF441E82628C000E6F65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				21E1B4231E9F739C009A9A57 /* history_LAI_model.h */,
+				21E1B4241E9F739C009A9A57 /* history_LAI_model.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -480,6 +488,8 @@
 				212BCF771E8263DB000E6F65 /* UIView+Extension.m */,
 				21CB989F1E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.h */,
 				21CB98A01E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m */,
+				21E1B4201E9F5B07009A9A57 /* UITableView+LZY.h */,
+				21E1B4211E9F5B07009A9A57 /* UITableView+LZY.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -761,6 +771,7 @@
 				212BCF581E82635A000E6F65 /* setting_Lai_ViewController.m in Sources */,
 				212BCF7B1E8274C9000E6F65 /* scan_Lai_View.m in Sources */,
 				212BCF6D1E82636F000E6F65 /* HWTabBarViewController.m in Sources */,
+				21E1B4251E9F739C009A9A57 /* history_LAI_model.m in Sources */,
 				21D1A54B1E851F24006CF9FD /* MASViewConstraint.m in Sources */,
 				21D1A54E1E851F24006CF9FD /* View+MASAdditions.m in Sources */,
 				21D1A5461E851F24006CF9FD /* MASCompositeConstraint.m in Sources */,
@@ -786,6 +797,7 @@
 				212BCEDC1E821CF1000E6F65 /* main.m in Sources */,
 				212BCF781E8263DB000E6F65 /* UIView+Extension.m in Sources */,
 				212BCF6E1E82636F000E6F65 /* HWDropdownMenu.m in Sources */,
+				21E1B4221E9F5B07009A9A57 /* UITableView+LZY.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

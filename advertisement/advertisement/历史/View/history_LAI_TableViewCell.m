@@ -7,7 +7,7 @@
 //
 
 #import "history_LAI_TableViewCell.h"
-#import "SweepCodeRecord+CoreDataProperties.h"
+#import "history_LAI_model.h"
 @interface history_LAI_TableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *historyName;
 @property (weak, nonatomic) IBOutlet UILabel *historyTime;
@@ -21,13 +21,14 @@ static NSString *identifier = @"history_LAI_TableViewCell";
     if (!cell) {
         [tableView registerNib:[UINib nibWithNibName:identifier bundle:nil] forCellReuseIdentifier:identifier];
     }
+   
     return [tableView dequeueReusableCellWithIdentifier:identifier];
 }
-- (void)setHistoryModel:(SweepCodeRecord *)historyModel{
+- (void)setHistoryModel:(history_LAI_model *)historyModel{
     _historyModel = historyModel;
-    self.historyImage.image = [UIImage imageWithData:historyModel.sweepCodeImage];
-    self.historyName.text = historyModel.sweepCodeName;
-    self.historyTime.text = historyModel.sweepCodeTime;
+    self.historyImage.image = [UIImage imageWithData:historyModel.imageData];
+    self.historyName.text = historyModel.name;
+    self.historyTime.text = historyModel.time;
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
