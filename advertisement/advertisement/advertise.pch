@@ -16,6 +16,8 @@
 #import "UIBarButtonItem+Extension.h"
 #import "UITableView+LZY.h"
 #import "Masonry.h"
+#import "NJKWebViewProgress.h"
+#import "NJKWebViewProgressView.h"
 #import "advertisementData.h"
 #import "NSManagedObjectContext+FRP.h"
 #import <ReactiveCocoa.h>

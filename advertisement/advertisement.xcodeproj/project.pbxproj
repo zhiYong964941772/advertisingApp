@@ -41,6 +41,9 @@
 		218CFEB91E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEB61E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m */; };
 		218CFEBA1E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEB81E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m */; };
 		218CFEC01E8919D600CBA65C /* advertisementData.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEBF1E8919D600CBA65C /* advertisementData.m */; };
+		21A1ECC31EA887FC00833FA3 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A1ECC01EA887FC00833FA3 /* NJKWebViewProgress.m */; };
+		21A1ECC41EA887FC00833FA3 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A1ECC21EA887FC00833FA3 /* NJKWebViewProgressView.m */; };
+		21A1ECC71EA8A2A500833FA3 /* UIImage+PixForLai.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A1ECC61EA8A2A500833FA3 /* UIImage+PixForLai.m */; };
 		21CB98A11E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB98A01E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m */; };
 		21D1A5461E851F24006CF9FD /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D1A52E1E851F24006CF9FD /* MASCompositeConstraint.m */; };
 		21D1A5471E851F24006CF9FD /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D1A5311E851F24006CF9FD /* MASConstraint.m */; };
@@ -140,6 +143,12 @@
 		218CFEB81E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SweepCodeRecord+CoreDataProperties.m"; sourceTree = "<group>"; };
 		218CFEBE1E8919D600CBA65C /* advertisementData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = advertisementData.h; sourceTree = "<group>"; };
 		218CFEBF1E8919D600CBA65C /* advertisementData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = advertisementData.m; sourceTree = "<group>"; };
+		21A1ECBF1EA887FC00833FA3 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		21A1ECC01EA887FC00833FA3 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		21A1ECC11EA887FC00833FA3 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		21A1ECC21EA887FC00833FA3 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		21A1ECC51EA8A2A500833FA3 /* UIImage+PixForLai.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PixForLai.h"; sourceTree = "<group>"; };
+		21A1ECC61EA8A2A500833FA3 /* UIImage+PixForLai.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PixForLai.m"; sourceTree = "<group>"; };
 		21CB989F1E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FRP.h"; sourceTree = "<group>"; };
 		21CB98A01E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+FRP.m"; sourceTree = "<group>"; };
 		21D1A52D1E851F24006CF9FD /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -468,6 +477,7 @@
 		212BCF591E82636F000E6F65 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				21A1ECBE1EA887FC00833FA3 /* NJKWebViewProgress */,
 				21D1A52C1E851F24006CF9FD /* Masonry */,
 				212BCEDD1E821CF1000E6F65 /* AppDelegate.h */,
 				212BCEDE1E821CF1000E6F65 /* AppDelegate.m */,
@@ -490,6 +500,8 @@
 				21CB98A01E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m */,
 				21E1B4201E9F5B07009A9A57 /* UITableView+LZY.h */,
 				21E1B4211E9F5B07009A9A57 /* UITableView+LZY.m */,
+				21A1ECC51EA8A2A500833FA3 /* UIImage+PixForLai.h */,
+				21A1ECC61EA8A2A500833FA3 /* UIImage+PixForLai.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -531,6 +543,17 @@
 				212BCF691E82636F000E6F65 /* HWTextView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		21A1ECBE1EA887FC00833FA3 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				21A1ECBF1EA887FC00833FA3 /* NJKWebViewProgress.h */,
+				21A1ECC01EA887FC00833FA3 /* NJKWebViewProgress.m */,
+				21A1ECC11EA887FC00833FA3 /* NJKWebViewProgressView.h */,
+				21A1ECC21EA887FC00833FA3 /* NJKWebViewProgressView.m */,
+			);
+			path = NJKWebViewProgress;
 			sourceTree = "<group>";
 		};
 		21D1A52C1E851F24006CF9FD /* Masonry */ = {
@@ -761,6 +784,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21A1ECC71EA8A2A500833FA3 /* UIImage+PixForLai.m in Sources */,
 				218CFEC01E8919D600CBA65C /* advertisementData.m in Sources */,
 				21D1A5471E851F24006CF9FD /* MASConstraint.m in Sources */,
 				21D1A54A1E851F24006CF9FD /* MASViewAttribute.m in Sources */,
@@ -768,6 +792,7 @@
 				212BCF711E82636F000E6F65 /* HWTextView.m in Sources */,
 				213297F41E9E2A6B00317B53 /* history_LAI_TableViewCell.m in Sources */,
 				218CFEB91E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m in Sources */,
+				21A1ECC41EA887FC00833FA3 /* NJKWebViewProgressView.m in Sources */,
 				212BCF581E82635A000E6F65 /* setting_Lai_ViewController.m in Sources */,
 				212BCF7B1E8274C9000E6F65 /* scan_Lai_View.m in Sources */,
 				212BCF6D1E82636F000E6F65 /* HWTabBarViewController.m in Sources */,
@@ -787,6 +812,7 @@
 				210912051E94A11E00B391E6 /* history_LAI_UITableView.m in Sources */,
 				212BCF521E82630D000E6F65 /* history_LAI_ViewController.m in Sources */,
 				212BCF4F1E8262F2000E6F65 /* game_Lai_ViewController.m in Sources */,
+				21A1ECC31EA887FC00833FA3 /* NJKWebViewProgress.m in Sources */,
 				212BCEDF1E821CF1000E6F65 /* AppDelegate.m in Sources */,
 				21D1A54D1E851F24006CF9FD /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				212BCF751E8263AD000E6F65 /* UIBarButtonItem+Extension.m in Sources */,

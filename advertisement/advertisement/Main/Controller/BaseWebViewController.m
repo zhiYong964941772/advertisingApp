@@ -10,12 +10,13 @@
 
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@interface BaseWebViewController ()<UIWebViewDelegate>
+@interface BaseWebViewController ()<UIWebViewDelegate,NJKWebViewProgressDelegate>
 @property (nonatomic,weak)UIWebView *webView;
 @property (nonatomic,copy)NSString *urlStr;
 @property (nonatomic ,strong)JSContext *context;
 @property (nonatomic, assign)BOOL isScan;//判断是否扫描获得的webUrl，如果不是，就不存coreData
-
+@property (nonatomic ,strong)NJKWebViewProgressView *webViewProgressView;
+@property (nonatomic ,strong)NJKWebViewProgress *webViewProgress;
 @end
 
 @implementation BaseWebViewController
@@ -54,6 +55,16 @@
 #pragma mark -- webView的创建
 - (void)creatWebView{
     UIWebView *web = [[UIWebView alloc]initWithFrame:CGRectMake(0,64,SCREEN_WIDTH,viewH-64)];
+    self.webViewProgress = [[NJKWebViewProgress alloc]init];
+    self.webViewProgress.webViewProxyDelegate = self;
+    self.webViewProgress.progressDelegate = self;
+    CGFloat progressBarHeight = 0.5f;
+    CGRect navigaitonBarBounds = self.navigationController.navigationBar.bounds;
+    CGRect barFrame = CGRectMake(0, navigaitonBarBounds.size.height - progressBarHeight, navigaitonBarBounds.size.width, progressBarHeight);
+    self.webViewProgressView = [[NJKWebViewProgressView alloc]initWithFrame:barFrame];
+    self.webViewProgressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    [self.navigationController.navigationBar addSubview:self.webViewProgressView];
+
     web.scalesPageToFit = YES;
     web.delegate = self;
     web.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
@@ -65,17 +76,15 @@
     
     [self.view addSubview:web];
 }
-#pragma mark -- webDelegate
-- (void)webViewDidStartLoad:(UIWebView *)webView{
-}
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+
+#pragma mark -- NJKWebViewProgressDelegate
+- (void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress{
+    NSString *title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.title = title;
-    if ([self.urlStr isEqualToString:webView.request.URL.absoluteString]&&(self.isScan==YES)) {
+    if ([self.urlStr isEqualToString:self.webView.request.URL.absoluteString]&&(self.isScan==YES)) {
         //保存浏览信息到数据库
         [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
-           BOOL isQuery = [context queryTableExists:title];
+            BOOL isQuery = [context queryTableExists:title];
             if (isQuery) {
                 NSLog(@"%@已经存在,只更新表",self.title);
                 context.deleteObject(title).addObject(title,self.urlStr,[self getImageData]);
