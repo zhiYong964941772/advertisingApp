@@ -81,8 +81,11 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     history_LAI_TableViewCell *cell = [history_LAI_TableViewCell getWithTableView:tableView];
+    
     if (indexPath.row<self.rowList.count) {
         cell.historyModel = self.rowList[indexPath.row];//防止越界奔溃
+        cell.showsReorderControl =YES;//打开可操作按钮
+
     }
     return cell;
 }
@@ -100,10 +103,17 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         history_LAI_model *historModel = self.rowList[indexPath.row];
         [self.rowList removeObjectAtIndex:indexPath.row];
-        [self deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
-        context.deleteObject(historModel.name);
-        }];
+        if (self.rowList.count == indexPath.row) {
+            self.rowNum = 0;
+            [self reloadData];
+            [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
+                context.deleteObject(historModel.name);
+            }];
+
+        }else{
+            NSLog(@"删除失败");
+        }
+        
         
     }
     
