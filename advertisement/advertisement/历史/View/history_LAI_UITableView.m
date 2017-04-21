@@ -54,6 +54,7 @@
     [self.mj_footer endRefreshing];
     [self reloadData];
 }
+#pragma mark -- 更新tableView
 - (void)showRowNum{
     [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
         self.rowList = [NSMutableArray new];
@@ -95,6 +96,15 @@
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
     return UITableViewCellEditingStyleDelete;
 }
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UILabel *header = [UILabel makeLabelWithBlock:^(UILabel *label) {
+        label.addFrame(CGRectMake(0,0,SCREEN_WIDTH,40)).addTextFont(14).addTextAlignment(NSTextAlignmentCenter).addBgColor(BASECOLORL(230,230,230)).addText(@"温馨提示，左滑删除历史记录");
+    }];
+    return header;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
+}
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"删除";
@@ -103,19 +113,18 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         history_LAI_model *historModel = self.rowList[indexPath.row];
         [self.rowList removeObjectAtIndex:indexPath.row];
-        if (self.rowList.count == indexPath.row) {
-            self.rowNum = 0;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.rowNum = (self.rowNum>0)?self.rowNum-- : 0;
             [self reloadData];
             [NSManagedObjectContext makeManagedObjectContext:^(NSManagedObjectContext *context) {
                 context.deleteObject(historModel.name);
             }];
-
-        }else{
-            NSLog(@"删除失败");
+ 
+        });
+        
         }
         
-        
-    }
+    
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

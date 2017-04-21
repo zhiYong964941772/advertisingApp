@@ -182,7 +182,10 @@
     }
     //偶尔会崩溃，大概是第一次权限原因，要加上是否开启了相机权限
     if (_session) {
-        [_session startRunning];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [_session startRunning];
+        });
 
     }
 }

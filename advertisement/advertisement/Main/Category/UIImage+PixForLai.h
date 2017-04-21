@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (PixForLai)
+- (id)initWithImage:(UIImage *)image;
 
 @end

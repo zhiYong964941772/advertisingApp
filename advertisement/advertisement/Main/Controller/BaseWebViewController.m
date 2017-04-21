@@ -66,7 +66,7 @@
     [self.navigationController.navigationBar addSubview:self.webViewProgressView];
 
     web.scalesPageToFit = YES;
-    web.delegate = self;
+    web.delegate = self.webViewProgress;
     web.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
     NSURL *url = [NSURL URLWithString:self.urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

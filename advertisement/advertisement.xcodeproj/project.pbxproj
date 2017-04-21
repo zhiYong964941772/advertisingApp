@@ -38,6 +38,7 @@
 		213297F41E9E2A6B00317B53 /* history_LAI_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 213297F31E9E2A6B00317B53 /* history_LAI_TableViewCell.m */; };
 		213297F61E9E2A7D00317B53 /* history_LAI_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 213297F51E9E2A7D00317B53 /* history_LAI_TableViewCell.xib */; };
 		214CEAF61E890E8900367547 /* advertisementDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 214CEAF41E890E8900367547 /* advertisementDataModel.xcdatamodeld */; };
+		2158E76B1EAA0A7E00910221 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2158E76A1EAA0A7E00910221 /* UILabel+Extension.m */; };
 		218CFEB91E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEB61E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m */; };
 		218CFEBA1E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEB81E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m */; };
 		218CFEC01E8919D600CBA65C /* advertisementData.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEBF1E8919D600CBA65C /* advertisementData.m */; };
@@ -137,6 +138,8 @@
 		213297F31E9E2A6B00317B53 /* history_LAI_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = history_LAI_TableViewCell.m; sourceTree = "<group>"; };
 		213297F51E9E2A7D00317B53 /* history_LAI_TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = history_LAI_TableViewCell.xib; sourceTree = "<group>"; };
 		214CEAF51E890E8900367547 /* advertisementDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = advertisementDataModel.xcdatamodel; sourceTree = "<group>"; };
+		2158E7691EAA0A7E00910221 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
+		2158E76A1EAA0A7E00910221 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
 		218CFEB51E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SweepCodeRecord+CoreDataClass.h"; sourceTree = "<group>"; };
 		218CFEB61E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SweepCodeRecord+CoreDataClass.m"; sourceTree = "<group>"; };
 		218CFEB71E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SweepCodeRecord+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -502,6 +505,8 @@
 				21E1B4211E9F5B07009A9A57 /* UITableView+LZY.m */,
 				21A1ECC51EA8A2A500833FA3 /* UIImage+PixForLai.h */,
 				21A1ECC61EA8A2A500833FA3 /* UIImage+PixForLai.m */,
+				2158E7691EAA0A7E00910221 /* UILabel+Extension.h */,
+				2158E76A1EAA0A7E00910221 /* UILabel+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -790,6 +795,7 @@
 				21D1A54A1E851F24006CF9FD /* MASViewAttribute.m in Sources */,
 				21D1A5481E851F24006CF9FD /* MASConstraintMaker.m in Sources */,
 				212BCF711E82636F000E6F65 /* HWTextView.m in Sources */,
+				2158E76B1EAA0A7E00910221 /* UILabel+Extension.m in Sources */,
 				213297F41E9E2A6B00317B53 /* history_LAI_TableViewCell.m in Sources */,
 				218CFEB91E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m in Sources */,
 				21A1ECC41EA887FC00833FA3 /* NJKWebViewProgressView.m in Sources */,
