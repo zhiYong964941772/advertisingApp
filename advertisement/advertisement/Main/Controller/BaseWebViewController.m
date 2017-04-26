@@ -79,6 +79,7 @@
 
 #pragma mark -- NJKWebViewProgressDelegate
 - (void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress{
+    [self.webViewProgressView setProgress:progress animated:YES];
     NSString *title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.title = title;
     if ([self.urlStr isEqualToString:self.webView.request.URL.absoluteString]&&(self.isScan==YES)) {

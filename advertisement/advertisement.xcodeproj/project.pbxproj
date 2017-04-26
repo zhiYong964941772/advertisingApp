@@ -42,6 +42,8 @@
 		218CFEB91E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEB61E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m */; };
 		218CFEBA1E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEB81E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m */; };
 		218CFEC01E8919D600CBA65C /* advertisementData.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEBF1E8919D600CBA65C /* advertisementData.m */; };
+		21A0E2001EB07B8500751B5A /* webLine.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21A0E1FF1EB07B8500751B5A /* webLine.plist */; };
+		21A0E2031EB094EC00751B5A /* function_LAI_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A0E2021EB094EC00751B5A /* function_LAI_CollectionView.m */; };
 		21A1ECC31EA887FC00833FA3 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A1ECC01EA887FC00833FA3 /* NJKWebViewProgress.m */; };
 		21A1ECC41EA887FC00833FA3 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A1ECC21EA887FC00833FA3 /* NJKWebViewProgressView.m */; };
 		21A1ECC71EA8A2A500833FA3 /* UIImage+PixForLai.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A1ECC61EA8A2A500833FA3 /* UIImage+PixForLai.m */; };
@@ -146,6 +148,9 @@
 		218CFEB81E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SweepCodeRecord+CoreDataProperties.m"; sourceTree = "<group>"; };
 		218CFEBE1E8919D600CBA65C /* advertisementData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = advertisementData.h; sourceTree = "<group>"; };
 		218CFEBF1E8919D600CBA65C /* advertisementData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = advertisementData.m; sourceTree = "<group>"; };
+		21A0E1FF1EB07B8500751B5A /* webLine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = webLine.plist; sourceTree = "<group>"; };
+		21A0E2011EB094EC00751B5A /* function_LAI_CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = function_LAI_CollectionView.h; sourceTree = "<group>"; };
+		21A0E2021EB094EC00751B5A /* function_LAI_CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = function_LAI_CollectionView.m; sourceTree = "<group>"; };
 		21A1ECBF1EA887FC00833FA3 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
 		21A1ECC01EA887FC00833FA3 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		21A1ECC11EA887FC00833FA3 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
@@ -259,6 +264,7 @@
 				218CFEBF1E8919D600CBA65C /* advertisementData.m */,
 				214CEAF41E890E8900367547 /* advertisementDataModel.xcdatamodeld */,
 				212BCEEB1E821CF1000E6F65 /* Info.plist */,
+				21A0E1FF1EB07B8500751B5A /* webLine.plist */,
 				212BCEDA1E821CF1000E6F65 /* Supporting Files */,
 			);
 			path = advertisement;
@@ -365,6 +371,8 @@
 		212BCF3D1E82627F000E6F65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				21A0E2011EB094EC00751B5A /* function_LAI_CollectionView.h */,
+				21A0E2021EB094EC00751B5A /* function_LAI_CollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -715,6 +723,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				212BCEEA1E821CF1000E6F65 /* LaunchScreen.storyboard in Resources */,
+				21A0E2001EB07B8500751B5A /* webLine.plist in Resources */,
 				212BCEE71E821CF1000E6F65 /* Assets.xcassets in Resources */,
 				213297F61E9E2A7D00317B53 /* history_LAI_TableViewCell.xib in Resources */,
 			);
@@ -814,6 +823,7 @@
 				21D1A5491E851F24006CF9FD /* MASLayoutConstraint.m in Sources */,
 				212BCF551E82633E000E6F65 /* function_LAI_ViewController.m in Sources */,
 				212BCF6C1E82636F000E6F65 /* HWNavigationController.m in Sources */,
+				21A0E2031EB094EC00751B5A /* function_LAI_CollectionView.m in Sources */,
 				21CB98A11E8B5A8C0000FB30 /* NSManagedObjectContext+FRP.m in Sources */,
 				210912051E94A11E00B391E6 /* history_LAI_UITableView.m in Sources */,
 				212BCF521E82630D000E6F65 /* history_LAI_ViewController.m in Sources */,
