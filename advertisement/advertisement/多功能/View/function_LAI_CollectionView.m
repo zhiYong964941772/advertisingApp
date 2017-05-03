@@ -8,25 +8,38 @@
 
 #import "function_LAI_CollectionView.h"
 @interface function_LAI_CollectionView()<UICollectionViewDelegate,UICollectionViewDataSource>
+{
+    NSInteger _cellNum;//cell的行数
+    NSInteger _headerNum;//头的个数
+
+}
 @end
 @implementation function_LAI_CollectionView
+static CGFloat cellHeight;//cell的高度
+static NSString *const FUNCTIONIDENTIFIERCELL = @"FUNCTIONIDENTIFIER";//重用关键字
+static NSString *const FUNCTIONIDENTIFIERHEADER = @"FUNCTIONIDENTIFIERHEADER";//
+
 #define kMagin 10
-- (instancetype)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
++ (UICollectionView *)getCollection:(CGRect)rect{
+    return [[self alloc]initWithFrame:rect collectionViewLayout:[self creatFlowLayout]];
+}
+- (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(nonnull UICollectionViewLayout *)layout{
+    self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
         self.delegate = self;
         self.dataSource = self;
-        
+        [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:FUNCTIONIDENTIFIERCELL];
+        [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:FUNCTIONIDENTIFIERHEADER];
     }
     return self;
 }
 #pragma mark --  UICollectionViewFlowLayout
-- (UICollectionViewFlowLayout *)creatFlowLayout{
++ (UICollectionViewFlowLayout *)creatFlowLayout{
     //自动网格布局
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
     
     CGFloat itemWidth = (SCREEN_WIDTH - 4 * kMagin) / 3;
-    
+    cellHeight = itemWidth;
     //设置单元格大小
     flowLayout.itemSize = CGSizeMake(itemWidth, itemWidth);
     //最小行间距(默认为10)
@@ -41,7 +54,18 @@
     flowLayout.headerReferenceSize = CGSizeMake(0,40);
     return flowLayout;
 }
-/*
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return (_headerNum&&_headerNum>0)?_headerNum:0;
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return (_cellNum&&_cellNum>0)?_cellNum:0;
+}
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FUNCTIONIDENTIFIERCELL forIndexPath:indexPath];
+    
+    
+    
+}/*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {

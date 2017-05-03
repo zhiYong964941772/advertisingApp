@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface function_LAI_CollectionView : UICollectionView
-
++(__kindof UICollectionView *)getCollection:(CGRect)rect;
 @end

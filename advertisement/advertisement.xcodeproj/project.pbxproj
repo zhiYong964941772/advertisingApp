@@ -37,6 +37,7 @@
 		212BCF7B1E8274C9000E6F65 /* scan_Lai_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 212BCF7A1E8274C9000E6F65 /* scan_Lai_View.m */; };
 		213297F41E9E2A6B00317B53 /* history_LAI_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 213297F31E9E2A6B00317B53 /* history_LAI_TableViewCell.m */; };
 		213297F61E9E2A7D00317B53 /* history_LAI_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 213297F51E9E2A7D00317B53 /* history_LAI_TableViewCell.xib */; };
+		21371FEF1EB9DFD600D00A36 /* function_LAI_CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21371FEE1EB9DFD600D00A36 /* function_LAI_CollectionViewCell.m */; };
 		214CEAF61E890E8900367547 /* advertisementDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 214CEAF41E890E8900367547 /* advertisementDataModel.xcdatamodeld */; };
 		2158E76B1EAA0A7E00910221 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2158E76A1EAA0A7E00910221 /* UILabel+Extension.m */; };
 		218CFEB91E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CFEB61E8917F200CBA65C /* SweepCodeRecord+CoreDataClass.m */; };
@@ -139,6 +140,8 @@
 		213297F21E9E2A6B00317B53 /* history_LAI_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = history_LAI_TableViewCell.h; sourceTree = "<group>"; };
 		213297F31E9E2A6B00317B53 /* history_LAI_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = history_LAI_TableViewCell.m; sourceTree = "<group>"; };
 		213297F51E9E2A7D00317B53 /* history_LAI_TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = history_LAI_TableViewCell.xib; sourceTree = "<group>"; };
+		21371FED1EB9DFD600D00A36 /* function_LAI_CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = function_LAI_CollectionViewCell.h; sourceTree = "<group>"; };
+		21371FEE1EB9DFD600D00A36 /* function_LAI_CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = function_LAI_CollectionViewCell.m; sourceTree = "<group>"; };
 		214CEAF51E890E8900367547 /* advertisementDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = advertisementDataModel.xcdatamodel; sourceTree = "<group>"; };
 		2158E7691EAA0A7E00910221 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
 		2158E76A1EAA0A7E00910221 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 			children = (
 				21A0E2011EB094EC00751B5A /* function_LAI_CollectionView.h */,
 				21A0E2021EB094EC00751B5A /* function_LAI_CollectionView.m */,
+				21371FED1EB9DFD600D00A36 /* function_LAI_CollectionViewCell.h */,
+				21371FEE1EB9DFD600D00A36 /* function_LAI_CollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -818,6 +823,7 @@
 				212BCF6F1E82636F000E6F65 /* HWSearchBar.m in Sources */,
 				212BCF4C1E8262C6000E6F65 /* scan_Lai_ViewController.m in Sources */,
 				212BCEE21E821CF1000E6F65 /* ViewController.m in Sources */,
+				21371FEF1EB9DFD600D00A36 /* function_LAI_CollectionViewCell.m in Sources */,
 				218CFEBA1E8917F200CBA65C /* SweepCodeRecord+CoreDataProperties.m in Sources */,
 				214CEAF61E890E8900367547 /* advertisementDataModel.xcdatamodeld in Sources */,
 				21D1A5491E851F24006CF9FD /* MASLayoutConstraint.m in Sources */,
