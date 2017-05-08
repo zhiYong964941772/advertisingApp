@@ -31,9 +31,27 @@
     CGFloat vW = self.width;
     _functionLabel = ({
       UILabel *label = [UILabel makeLabelWithBlock:^(UILabel *label) {
-          label.addTextFont(12).addBgColor([UIColor whiteColor]).addTextAlignment(NSTextAlignmentCenter).addFrame(CGRectMake(0,vH - 30,vW,25));
+          label.addTextFont(12).addTextColor([UIColor blackColor]).addTextAlignment(NSTextAlignmentCenter).addFrame(CGRectMake(0,vH - 30,vW,25));
        }];
       label;
     });
+    _imageView = ({
+       UIImageView *imageView = [UIImageView makeImageViewWithBlock:^(UIImageView *imageView) {
+           imageView.addFrame(CGRectMake(0,0,vW,vH-30)).addContentMode(UIViewContentModeScaleAspectFit);
+       }];
+        imageView;
+    });
+    [self.contentView addSubview:_functionLabel];
+    [self.contentView addSubview:_imageView];
+
+//    self.showFunctionCell = ^(NSString *text, NSString *imageUrl) {
+//           [weakImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",imageUrl]]];
+//           [weakFunctionLabel setText:text];
+//    };
+}
+- (void)configureCellWithCellText:(NSString *)text WithImageUrl:(NSString *)imageUrl{
+    [_imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",imageUrl]]];
+    [_functionLabel setText:text];
+
 }
 @end

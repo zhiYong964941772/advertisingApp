@@ -7,7 +7,9 @@
 //
 
 #import "function_LAI_ViewController.h"
-
+#import "function_LAI_CollectionView.h"
+#import "BaseWebViewController.h"
+#import "function_LAI_Model.h"
 @interface function_LAI_ViewController ()
 
 @end
@@ -16,9 +18,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self readData];
 }
-
+- (void)readData{
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"webLine" ofType:@"plist"];
+    NSArray *fileData = [NSArray arrayWithContentsOfFile:filePath];
+    function_LAI_Model *model = [function_LAI_Model shareFunctionModelWithArr:fileData];
+    function_LAI_CollectionView *FLC = [function_LAI_CollectionView getCollection:CGRectMake(0,64,SCREEN_WIDTH,SCREEN_HEIGHT-64)];
+    [FLC showFunctionCollectionViewWithCellData:model.subClassArr WithHeaderNum:[fileData lastObject]];
+    @weakify(self);
+    FLC.showWeb = ^(NSString *webUrl) {
+        @strongify(self);
+        BaseWebViewController *baseWeb = [BaseWebViewController pushWebVC:webUrl WithIsScan:NO];
+        [self.navigationController pushViewController:baseWeb animated:NO];
+    };
+    [self.view addSubview:FLC];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

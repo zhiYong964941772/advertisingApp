@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface function_LAI_CollectionView : UICollectionView
-+(__kindof UICollectionView *)getCollection:(CGRect)rect;
++ (__kindof UICollectionView *)getCollection:(CGRect)rect;
+- (void)showFunctionCollectionViewWithCellData:(NSArray*)cellData WithHeaderNum:(NSArray*)headerData;
+@property (nonatomic, copy)void (^showWeb)(NSString *webUrl);
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface function_LAI_CollectionViewCell : UICollectionViewCell
-
+@property (nonatomic, copy)void (^showFunctionCell)(NSString *text , NSString *imageUrl);
+- (void)configureCellWithCellText:(NSString *)text WithImageUrl:(NSString *)imageUrl;
 @end
