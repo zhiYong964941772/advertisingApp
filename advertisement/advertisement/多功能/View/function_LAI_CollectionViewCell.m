@@ -23,6 +23,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self creatViewLayout];
+        self.contentView.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }

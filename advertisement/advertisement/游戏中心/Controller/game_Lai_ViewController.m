@@ -16,6 +16,7 @@
 
 @end
 @implementation game_Lai_ViewController
+
 - (JSContext *)context{
     if (!_context) {
         _context = [self.web valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
@@ -25,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self creatWebView];
+
     
 }
 - (void)creatRightBtn{
@@ -34,7 +36,7 @@
     self.navigationItem.leftBarButtonItem = leftBtn;
 }
 - (void)creatWebView{
-    UIWebView *web = [[UIWebView alloc]initWithFrame:CGRectMake(0,0,SCREEN_WIDTH,self.view.bounds.size.height-44)];
+    UIWebView *web = [[UIWebView alloc]initWithFrame:CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT-88)];
     self.web = web;
     self.webViewProgress = [[NJKWebViewProgress alloc]init];
     self.webViewProgress.webViewProxyDelegate = self;
@@ -101,14 +103,7 @@
 - (void)reloadAction{
     [self.web reload];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 
 @end

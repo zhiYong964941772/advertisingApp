@@ -39,4 +39,42 @@
         }
     }
 }
+#pragma mark -- 生成二维码
++ (instancetype)creatImageWithQrCodeText:(NSString *)qrT WithCreatSize:(CGFloat)size{
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    [filter setDefaults];
+    NSData *filterData = [qrT dataUsingEncoding:NSUTF8StringEncoding];
+    [filter setValue:filterData forKeyPath:@"inputMessage"];
+    CIImage *outPutImage = [filter outputImage];
+    return [self filterTheQrCode:outPutImage WithSize:size];
+}
++ (UIImage *)filterTheQrCode:(CIImage *)ciImage WithSize:(CGFloat)size{
+    CGRect extent = CGRectIntegral(ciImage.extent);//获取图片的规格
+    CGFloat imageWidth = CGRectGetWidth(extent);
+    CGFloat imageHeight = CGRectGetHeight(extent);
+
+    CGFloat scale = MIN(size/imageWidth, size/imageHeight);//计算像素比例
+    size_t width = imageWidth*scale;
+    size_t height = imageHeight*scale;
+    
+    CGColorSpaceRef csr = CGColorSpaceCreateDeviceGray();//创建一个颜色空间
+    CGContextRef bitMapRef = CGBitmapContextCreate(nil, width, height, 8, 0, csr, kCGImageAlphaNone);//绘制空间的规格
+    
+    
+    CIContext *context = [CIContext contextWithOptions:nil];//获取创建的颜色空间
+    
+    CGImageRef bitmapImage = [context createCGImage:ciImage fromRect:extent];//获取要编辑的过滤图
+    
+    CGContextSetInterpolationQuality(bitMapRef, kCGInterpolationNone);//连接颜色空间，CGInterpolationQuality表示插入的方式
+    
+    CGContextScaleCTM(bitMapRef, scale, scale);//更改过滤图的坐标
+    
+    CGContextDrawImage(bitMapRef, extent, bitmapImage);//重新绘制过滤图
+    // 2.保存bitmap到图片
+    CGImageRef scaledImage = CGBitmapContextCreateImage(bitMapRef);//按照绘制空间的规格生成新图片
+    
+    CGContextRelease(bitMapRef);
+    CGImageRelease(bitmapImage);
+    return [UIImage imageWithCGImage:scaledImage];
+  }
 @end

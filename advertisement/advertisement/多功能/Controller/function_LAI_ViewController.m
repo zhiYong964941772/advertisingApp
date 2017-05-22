@@ -24,7 +24,7 @@
     NSString *filePath = [[NSBundle mainBundle]pathForResource:@"webLine" ofType:@"plist"];
     NSArray *fileData = [NSArray arrayWithContentsOfFile:filePath];
     function_LAI_Model *model = [function_LAI_Model shareFunctionModelWithArr:fileData];
-    function_LAI_CollectionView *FLC = [function_LAI_CollectionView getCollection:CGRectMake(0,64,SCREEN_WIDTH,SCREEN_HEIGHT-64)];
+    function_LAI_CollectionView *FLC = [function_LAI_CollectionView getCollection:CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT-88)];
     [FLC showFunctionCollectionViewWithCellData:model.subClassArr WithHeaderNum:[fileData lastObject]];
     @weakify(self);
     FLC.showWeb = ^(NSString *webUrl) {

@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import <InMobiSDK/InMobiSDK.h>
 #import "HWTabBarViewController.h"
 @interface AppDelegate ()
 
@@ -18,9 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [IMSdk initWithAccountID:INMOBI_INITIALIZE];
-//    [IMSdk setLogLevel:kIMSDKLogLevelDebug];
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+       self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     HWTabBarViewController *tabVC = [[HWTabBarViewController alloc]init];
     self.window.rootViewController = tabVC;
     [self.window makeKeyAndVisible];

@@ -33,7 +33,7 @@ static NSString *const FUNCTIONIDENTIFIERHEADER = @"FUNCTIONIDENTIFIERHEADER";//
     if (self) {
         self.delegate = self;
         self.dataSource = self;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor =  BASECOLORL(180, 180, 180);
         [self registerClass:[function_LAI_CollectionViewCell class] forCellWithReuseIdentifier:FUNCTIONIDENTIFIERCELL];
         [self registerClass:[function_LAI_CollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:FUNCTIONIDENTIFIERHEADER];
     }

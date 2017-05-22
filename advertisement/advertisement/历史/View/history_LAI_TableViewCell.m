@@ -18,8 +18,13 @@
 static NSString *identifier = @"history_LAI_TableViewCell";
 + (instancetype)getWithTableView:(UITableView *)tableView{
     
-    [tableView registerNib:[UINib nibWithNibName:identifier bundle:nil] forCellReuseIdentifier:identifier];
-    return [tableView dequeueReusableCellWithIdentifier:identifier];
+   
+    history_LAI_TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle]loadNibNamed:identifier owner:nil options:nil]lastObject];
+    }
+    
+    return cell;
 }
 - (void)setHistoryModel:(history_LAI_model *)historyModel{
     _historyModel = historyModel;

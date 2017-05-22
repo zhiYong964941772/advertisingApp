@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (PixForLai)
-- (id)initWithImage:(UIImage *)image;
++ (instancetype)creatImageWithQrCodeText:(NSString *)qrT WithCreatSize:(CGFloat)size;
 
 @end

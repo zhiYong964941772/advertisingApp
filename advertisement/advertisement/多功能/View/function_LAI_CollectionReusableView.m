@@ -31,7 +31,7 @@
     CGFloat vW = self.width;
     _functionLabel = ({
         UILabel *label = [UILabel makeLabelWithBlock:^(UILabel *label) {
-            label.addTextFont(12).addBgColor([UIColor whiteColor]).addTextAlignment(NSTextAlignmentCenter).addFrame(CGRectMake(0,vH - 30,vW,25));
+            label.addTextFont(14).addBgColor([UIColor whiteColor]).addTextAlignment(NSTextAlignmentCenter).addFrame(CGRectMake(0,vH - 30,vW,25));
         }];
         [self addSubview:label];
         label;

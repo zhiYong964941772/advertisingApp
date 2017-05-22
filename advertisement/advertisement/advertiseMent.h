@@ -9,8 +9,8 @@
 #ifndef advertiseMent_h
 #define advertiseMent_h
 
-#define INMOBI_INITIALIZE @"1ebda88754444314a57c005780579831"//应用码
-#define INMOBI_placementId 1491597165402//广告识别id
+#define INMOBI_INITIALIZE @"45b4bb04bad84123a6eaa75c4a64ba49"//应用码
+#define INMOBI_placementId 1494681809265//广告识别id
 #define SCREEN_WIDTH     [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT    [UIScreen mainScreen].bounds.size.height
 #define DEVICE(version)  ([[[UIDevice currentDevice] systemVersion] floatValue] >=version)

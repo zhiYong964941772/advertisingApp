@@ -9,7 +9,7 @@
 #import "HWNavigationController.h"
 
 @interface HWNavigationController ()
-
+@property (strong, nonatomic)  UIActivityIndicatorView *activity;
 @end
 
 @implementation HWNavigationController
@@ -32,11 +32,12 @@
     disableTextAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
     [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    
+
 }
 
 /**

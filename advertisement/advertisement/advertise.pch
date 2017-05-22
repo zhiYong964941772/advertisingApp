@@ -15,7 +15,7 @@
 #import "UIView+Extension.h"
 #import "UIBarButtonItem+Extension.h"
 #import "UITableView+LZY.h"
-//#import "UIImage+PixForLai.h"
+#import "UIImage+PixForLai.h"
 #import "UILabel+Extension.h"
 #import "UIImageView+Extension.h"
 #import "Masonry.h"
