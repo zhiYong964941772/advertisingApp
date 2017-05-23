@@ -18,7 +18,7 @@
 #define page 10
 #define cellHeight 88
 +(UITableView *)makeTableView:(void (^)(UITableView *))tableView{
-    history_LAI_UITableView *HL = [[history_LAI_UITableView alloc]initWithFrame:CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT - 88)];
+    history_LAI_UITableView *HL = [[history_LAI_UITableView alloc]initWithFrame:CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT - 108)];
     tableView(HL);
     return HL;
 }

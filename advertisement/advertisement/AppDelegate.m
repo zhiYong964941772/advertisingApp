@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HWTabBarViewController.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
-
+@import GoogleMobileAds;
 @interface AppDelegate ()
 
 @end
@@ -19,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
+    [GADMobileAds configureWithApplicationID:@"ca-app-pub-3173484698180136/2506703808"];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     HWTabBarViewController *tabVC = [[HWTabBarViewController alloc]init];
     self.window.rootViewController = tabVC;

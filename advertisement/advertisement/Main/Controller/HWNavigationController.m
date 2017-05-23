@@ -7,9 +7,9 @@
 //
 
 #import "HWNavigationController.h"
-
 @interface HWNavigationController ()
 @property (strong, nonatomic)  UIActivityIndicatorView *activity;
+
 @end
 
 @implementation HWNavigationController
@@ -36,9 +36,7 @@
 {
     [super viewDidLoad];
     
-    
-
-}
+   }
 
 /**
  *  重写这个方法目的：能够拦截所有push进来的控制器

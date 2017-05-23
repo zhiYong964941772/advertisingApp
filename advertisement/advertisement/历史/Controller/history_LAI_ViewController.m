@@ -5,20 +5,37 @@
 //  Created by huazhan Huang on 2017/3/22.
 //  Copyright © 2017年 zhiYong_lai. All rights reserved.
 //
+@import GoogleMobileAds;
 
 #import "history_LAI_ViewController.h"
 #import "history_LAI_UITableView.h"
 #import "BaseWebViewController.h"
 @interface history_LAI_ViewController ()
 @property (nonatomic,weak)history_LAI_UITableView *historyTableView;
+@property (strong, nonatomic)  GADBannerView *bannerView;
+
 @end
 
 @implementation history_LAI_ViewController
+- (GADBannerView *)bannerView{
+    if (!_bannerView) {
+        _bannerView = [[GADBannerView alloc]initWithFrame:CGRectMake(0,SCREEN_HEIGHT - 108, SCREEN_WIDTH, 64)];
+        _bannerView.adUnitID = @"ca-app-pub-3173484698180136/2506703808";
+        [self.view addSubview:_bannerView];
+        _bannerView.rootViewController = self;
+        
+    }
+    return _bannerView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self creatTableView];
     [self creatRightButton];
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[@"ce50569924b7649956ada464f140793a"];
+    [self.bannerView loadRequest:request];
+
 }
 - (void)creatTableView{
    history_LAI_UITableView *history = [history_LAI_UITableView makeTableView:^(UITableView *tableView) {
