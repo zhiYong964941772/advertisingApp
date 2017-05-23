@@ -14,6 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Google-Mobile-Ads-SDK (7.19.0)
+  - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -25,14 +27,18 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Google-Mobile-Ads-SDK
+  - MBProgressHUD
   - MJRefresh
   - ReactiveCocoa
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Google-Mobile-Ads-SDK: d1bcdbd8347a105a687345b8511701172a5074e9
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
 
-PODFILE CHECKSUM: ec160fd68b0abb3dc84c16e73c71d95ca7e3f704
+PODFILE CHECKSUM: f8d0d63bd1562895db15e2f1db9c82ea0a0ee437
 
 COCOAPODS: 1.2.0

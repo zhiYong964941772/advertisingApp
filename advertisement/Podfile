@@ -3,5 +3,7 @@ target "advertisement" do
 pod 'ReactiveCocoa'
 pod 'MJRefresh'
 pod 'AFNetworking'
+pod 'MBProgressHUD'
+pod 'Google-Mobile-Ads-SDK'
 end
 
